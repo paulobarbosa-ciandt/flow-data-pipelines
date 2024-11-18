@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: member_data
+    description: "Bronze layer table for member data"
+    columns:
+      - name: member_id
+        description: "Unique identifier for each member"
+      - name: first_name
+        description: "First name of the member"
+      - name: last_name
+        description: "Last name of the member"
+      - name: date_of_birth
+        description: "Date of birth of the member"
+      - name: contribution_type
+        description: "Type of contribution made by the member"
+      - name: withdrawal_reason
+        description: "Reason for withdrawal"
+      - name: units_held
+        description: "Units held by the member"
+      - name: unit_price
+        description: "Price per unit"
+      - name: create_date
+        description: "Record creation timestamp"
+      - name: update_date
+        description: "Record update timestamp"
