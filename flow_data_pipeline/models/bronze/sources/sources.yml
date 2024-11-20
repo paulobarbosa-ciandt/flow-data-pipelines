@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: azure_blob_storage
+    description: "Source data from Azure Blob Storage"
+    database: your_database_name  # Replace with your actual database name
+    schema: your_schema_name      # Replace with your actual schema name
+    tables:
+      - name: raw_members
+        description: "Raw members data from Azure Blob Storage"

@@ -1,0 +1,343 @@
+tables:
+  bronze:
+    members:
+      columns:
+        - name: member_id
+          type: BIGINT
+        - name: first_name
+          type: STRING
+        - name: last_name
+          type: STRING
+        - name: date_of_birth
+          type: DATE
+        - name: gender
+          type: STRING
+        - name: address
+          type: STRING
+        - name: phone_number
+          type: STRING
+        - name: email
+          type: STRING
+        - name: join_date
+          type: DATE
+        - name: employer_id
+          type: BIGINT
+        - name: create_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+        - name: update_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+
+    contributions:
+      columns:
+        - name: contribution_id
+          type: BIGINT
+        - name: member_id
+          type: BIGINT
+        - name: contribution_date
+          type: DATE
+        - name: amount
+          type: DECIMAL(18,2)
+        - name: contribution_type
+          type: STRING
+        - name: create_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+        - name: update_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+
+    withdrawals:
+      columns:
+        - name: withdrawal_id
+          type: BIGINT
+        - name: member_id
+          type: BIGINT
+        - name: withdrawal_date
+          type: DATE
+        - name: amount
+          type: DECIMAL(18,2)
+        - name: withdrawal_reason
+          type: STRING
+        - name: create_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+        - name: update_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+
+    investments:
+      columns:
+        - name: investment_id
+          type: BIGINT
+        - name: member_id
+          type: BIGINT
+        - name: investment_option
+          type: STRING
+        - name: units_held
+          type: DECIMAL(18,4)
+        - name: unit_price
+          type: DECIMAL(18,4)
+        - name: valuation_date
+          type: DATE
+        - name: create_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+        - name: update_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+
+  silver:
+    members:
+      columns:
+        - name: member_id
+          type: BIGINT
+        - name: first_name
+          type: STRING
+          constraints: NOT NULL
+        - name: last_name
+          type: STRING
+          constraints: NOT NULL
+        - name: date_of_birth
+          type: DATE
+        - name: gender
+          type: STRING
+        - name: address
+          type: STRING
+        - name: phone_number
+          type: STRING
+        - name: email
+          type: STRING
+        - name: join_date
+          type: DATE
+        - name: employer_id
+          type: BIGINT
+        - name: create_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+        - name: update_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+
+    contributions:
+      columns:
+        - name: contribution_id
+          type: BIGINT
+        - name: member_id
+          type: BIGINT
+        - name: contribution_date
+          type: DATE
+        - name: amount
+          type: DECIMAL(18,2)
+        - name: contribution_type
+          type: STRING
+        - name: create_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+        - name: update_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+
+    withdrawals:
+      columns:
+        - name: withdrawal_id
+          type: BIGINT
+        - name: member_id
+          type: BIGINT
+        - name: withdrawal_date
+          type: DATE
+        - name: amount
+          type: DECIMAL(18,2)
+        - name: withdrawal_reason
+          type: STRING
+        - name: create_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+        - name: update_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+
+    investments:
+      columns:
+        - name: investment_id
+          type: BIGINT
+        - name: member_id
+          type: BIGINT
+        - name: investment_option
+          type: STRING
+        - name: units_held
+          type: DECIMAL(18,4)
+        - name: unit_price
+          type: DECIMAL(18,4)
+        - name: valuation_date
+          type: DATE
+        - name: create_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+        - name: update_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+
+  gold:
+    dim_employer:
+      columns:
+        - name: dim_employer_sk
+          type: BIGINT
+          auto_increment: true
+        - name: employer_id
+          type: BIGINT
+        - name: employer_name
+          type: STRING
+        - name: industry
+          type: STRING
+        - name: location
+          type: STRING
+        - name: create_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+        - name: update_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+        - name: effective_date
+          type: TIMESTAMP
+        - name: end_date
+          type: TIMESTAMP
+          default: '9999-12-31'
+        - name: is_current
+          type: BOOLEAN
+          default: TRUE
+
+    dim_contribution_type:
+      columns:
+        - name: dim_contribution_type_sk
+          type: BIGINT
+          auto_increment: true
+        - name: contribution_type
+          type: STRING
+        - name: create_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+        - name: update_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+
+    dim_withdrawal_reason:
+      columns:
+        - name: dim_withdrawal_reason_sk
+          type: BIGINT
+          auto_increment: true
+        - name: withdrawal_reason
+          type: STRING
+        - name: create_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+        - name: update_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+
+    dim_investment_option:
+      columns:
+        - name: dim_investment_option_sk
+          type: BIGINT
+          auto_increment: true
+        - name: investment_option_id
+          type: BIGINT
+        - name: investment_option
+          type: STRING
+        - name: risk_profile
+          type: STRING
+        - name: asset_allocation
+          type: STRING
+        - name: create_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+        - name: update_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+
+    dim_date:
+      columns:
+        - name: dim_date_sk
+          type: BIGINT
+          auto_increment: true
+        - name: date
+          type: DATE
+        - name: year
+          type: INT
+        - name: quarter
+          type: INT
+        - name: month
+          type: INT
+        - name: day
+          type: INT
+        - name: weekday
+          type: STRING
+        - name: week
+          type: INT
+        - name: create_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+        - name: update_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+
+    dim_member:
+      columns:
+        - name: dim_member_sk
+          type: BIGINT
+          auto_increment: true
+        - name: member_id
+          type: BIGINT
+        - name: full_name
+          type: STRING
+        - name: date_of_birth
+          type: DATE
+        - name: gender
+          type: STRING
+        - name: join_date
+          type: DATE
+        - name: employer_id
+          type: BIGINT
+        - name: effective_date
+          type: TIMESTAMP
+        - name: end_date
+          type: TIMESTAMP
+          default: '9999-12-31'
+        - name: is_current
+          type: BOOLEAN
+          default: TRUE
+        - name: create_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+        - name: update_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+
+    fact_transactions:
+      columns:
+        - name: transaction_sk
+          type: BIGINT
+          auto_increment: true
+        - name: transaction_id
+          type: BIGINT
+        - name: dim_member_sk
+          type: BIGINT
+        - name: transaction_date_sk
+          type: BIGINT
+        - name: transaction_type
+          type: STRING
+        - name: amount
+          type: DECIMAL(18,2)
+        - name: dim_contribution_type_sk
+          type: BIGINT
+        - name: dim_withdrawal_reason_sk
+          type: BIGINT
+        - name: dim_investment_option_sk
+          type: BIGINT
+        - name: create_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP
+        - name: update_date
+          type: TIMESTAMP
+          default: CURRENT_TIMESTAMP

@@ -42,3 +42,18 @@ Runtime Error
 [0m07:02:52.004708 [debug] [MainThread]: Command `dbt init` succeeded at 07:02:52.004596 after 0.09 seconds
 [0m07:02:52.005215 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78c0da40ba10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78c0d6d3ddc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78c0d6d3f320>]}
 [0m07:02:52.005738 [debug] [MainThread]: Flushing usage events
+[0m06:57:10.291174 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x740362f9b3e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x740362d86d20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x740364e85910>]}
+
+
+============================== 06:57:10.295568 | 8974cda5-3893-4641-8bb8-8e744d47b368 ==============================
+[0m06:57:10.295568 [info ] [MainThread]: Running with dbt=1.8.8
+[0m06:57:10.296366 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/home/codespace/.dbt', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'target_path': 'None', 'invocation_command': 'dbt source snapshot-freshness', 'send_anonymous_usage_stats': 'True'}
+[0m06:57:10.296999 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /workspaces/flow-data-pipelines/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m06:57:10.298914 [debug] [MainThread]: Resource report: {"command_name": "freshness", "command_wall_clock_time": 0.083515726, "process_user_time": 1.364141, "process_kernel_time": 0.248025, "process_mem_max_rss": "85924", "process_in_blocks": "98672", "process_out_blocks": "8", "command_success": false}
+[0m06:57:10.299632 [debug] [MainThread]: Command `dbt source snapshot-freshness` failed at 06:57:10.299520 after 0.08 seconds
+[0m06:57:10.300106 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x740363bfef30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x740363bfef90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x740363bfeff0>]}
+[0m06:57:10.300591 [debug] [MainThread]: Flushing usage events
