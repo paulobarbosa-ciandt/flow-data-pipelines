@@ -45,7 +45,7 @@ WITH source_data AS (
         current_timestamp() AS create_date,
         current_timestamp() AS update_date
     FROM
-        '{{ source('azure_blob_storage', 'raw_members') }}'
+        '{{ source('fivetran', 'raw_members') }}'
 )
 
 SELECT
