@@ -2,7 +2,7 @@
     materialized='incremental',
     unique_key='member_id',
     incremental_strategy='merge',
-    on_schema_change='sync_all_columns'
+    on_schema_change='sync_all_columns',
 ) }}
 
 WITH source_data AS (
@@ -40,8 +40,3 @@ SELECT
     update_date
 FROM
     source_data
-
-{% if is_incremental() %}
-WHERE
-    modified_date > (SELECT MAX(modified_date) FROM {{ this }})
-{% endif %}
