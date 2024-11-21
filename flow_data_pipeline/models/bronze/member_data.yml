@@ -1,25 +1,46 @@
 version: 2
 
 models:
-  - name: member_data
-    description: "Bronze layer table for member data"
+  - name: bronze_members
+    description: "Bronze layer table for members data"
     columns:
       - name: member_id
-        description: "Unique identifier for each member"
+        description: "Primary key for the member"
+        tests:
+          - unique
+          - not_null
       - name: first_name
         description: "First name of the member"
+        tests:
+          - not_null
       - name: last_name
         description: "Last name of the member"
+        tests:
+          - not_null
       - name: date_of_birth
         description: "Date of birth of the member"
-      - name: contribution_type
-        description: "Type of contribution made by the member"
-      - name: withdrawal_reason
-        description: "Reason for withdrawal"
-      - name: units_held
-        description: "Units held by the member"
-      - name: unit_price
-        description: "Price per unit"
+        tests:
+          - not_null
+      - name: gender
+        description: "Gender of the member"
+        tests:
+          - not_null
+      - name: address
+        description: "Address of the member"
+      - name: phone_number
+        description: "Phone number of the member"
+      - name: email
+        description: "Email address of the member"
+      - name: join_date
+        description: "Join date of the member"
+        tests:
+          - not_null
+      - name: employer_id
+        description: "Employer ID of the member"
+      - name: modified_date
+        description: "Last modified date of the record"
+        tests:
+          - not_null
       - name: create_date
         description: "Record creation timestamp"
       - name: update_date
