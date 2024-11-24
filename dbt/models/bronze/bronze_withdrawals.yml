@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: withdrawals
+    description: "Bronze layer table for withdrawals data ingested from Azure Blob Storage."
+    columns:
+      - name: withdrawal_id
+        description: "Unique identifier for each withdrawal."
+      - name: member_id
+        description: "Identifier for the member making the withdrawal."
+      - name: withdrawal_date
+        description: "Date of the withdrawal."
+      - name: amount
+        description: "Amount of the withdrawal."
+      - name: withdrawal_reason
+        description: "Reason for the withdrawal."
+      - name: modified_date
+        description: "Timestamp of the last modification."
+      - name: create_date
+        description: "Timestamp when the record was created."
+      - name: update_date
+        description: "Timestamp when the record was last updated."

@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: silver_contributions
+    description: "Transformed and cleansed data from bronze.bronze_contributions for analytical processing."
+    columns:
+      - name: contribution_id
+        description: "Unique identifier for each contribution."
+        data_type: INT
+        tests:
+          - not_null
+          - unique
+      - name: member_id
+        description: "Identifier for the member making the contribution."
+        data_type: INT
+        tests:
+          - not_null
+      - name: contribution_date
+        description: "Date of the contribution."
+        data_type: DATE
+        tests:
+          - not_null
+      - name: amount
+        description: "Amount of the contribution."
+        data_type: DECIMAL(18,2)
+        tests:
+          - not_null
+          - relationships:
+              to: ref('silver_members')
+              field: member_id
+      - name: contribution_type
+        description: "Type of the contribution, standardized to predefined categories."
+        data_type: VARCHAR(20)
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['employer_contribution', 'personal_contribution', 'salary_sacrifice', 'government_contribution', 'unknown']
+      - name: create_date
+        description: "Timestamp when the record was created."
+        data_type: TIMESTAMP
+        tests:
+          - not_null
+      - name: update_date
+        description: "Timestamp when the record was last updated."
+        data_type: TIMESTAMP
+        tests:
+          - not_null

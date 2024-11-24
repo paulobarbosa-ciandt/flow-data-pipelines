@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: contributions
+    description: "Bronze layer table for contributions data ingested from Azure Blob Storage."
+    columns:
+      - name: contribution_id
+        description: "Unique identifier for each contribution."
+      - name: member_id
+        description: "Identifier for the member making the contribution."
+      - name: contribution_date
+        description: "Date of the contribution."
+      - name: amount
+        description: "Amount of the contribution."
+      - name: contribution_type
+        description: "Type of the contribution."
+      - name: modified_date
+        description: "Timestamp of the last modification."
+      - name: create_date
+        description: "Timestamp when the record was created."
+      - name: update_date
+        description: "Timestamp when the record was last updated."

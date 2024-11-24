@@ -23,11 +23,12 @@ models:
     bronze:
       +schema: bronze           # Maps to 'bronze' schema
       +materialized: incremental
-      +unique_key: member_id
       +incremental_strategy: merge
       +on_schema_change: sync_all_columns
 
-    # Similarly, configure other directories like 'silver', 'gold', etc., if needed
-    # silver:
-    #   +schema: silver
-    #   ...
+    # Configuration for the 'silver' directory
+    silver:
+      +schema: silver           # Maps to 'silver' schema
+      +materialized: incremental
+      +incremental_strategy: merge
+      +on_schema_change: sync_all_columns

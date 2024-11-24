@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: silver_withdrawals
+    description: "Transformed and cleansed data from bronze.bronze_withdrawals for analytical processing."
+    columns:
+      - name: withdrawal_id
+        description: "Unique identifier for each withdrawal."
+        data_type: INT
+        tests:
+          - not_null
+          - unique
+      - name: member_id
+        description: "Identifier for the member associated with the withdrawal."
+        data_type: INT
+        tests:
+          - not_null
+      - name: withdrawal_date
+        description: "Date of the withdrawal."
+        data_type: DATE
+        tests:
+          - not_null
+      - name: amount
+        description: "Amount of the withdrawal."
+        data_type: DECIMAL(18,2)
+        tests:
+          - not_null
+          - relationships:
+              to: ref('silver_members')
+              field: member_id
+      - name: withdrawal_reason
+        description: "Standardized reason for the withdrawal."
+        data_type: VARCHAR(50)
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['retirement_withdrawal', 'hardship_withdrawal', 'death_benefit_payment', 'invalidity_payment', 'unknown']
+      - name: create_date
+        description: "Timestamp when the record was created."
+        data_type: TIMESTAMP
+        tests:
+          - not_null
+      - name: update_date
+        description: "Timestamp when the record was last updated."
+        data_type: TIMESTAMP
+        tests:
+          - not_null

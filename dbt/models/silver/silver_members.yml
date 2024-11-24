@@ -1,0 +1,57 @@
+version: 2
+
+models:
+  - name: silver_members
+    description: "Transformed and cleansed data from bronze.bronze_members, bronze.bronze_contributions, and bronze.bronze_withdrawals for analytical processing."
+    columns:
+      - name: member_id
+        description: "Unique identifier for each member."
+        data_type: INT
+        tests:
+          - not_null
+          - unique
+      - name: full_name
+        description: "Member's full name, standardized to proper case."
+        data_type: VARCHAR(100)
+        tests:
+          - not_null
+      - name: date_of_birth
+        description: "Member's date of birth."
+        data_type: DATE
+        tests:
+          - not_null
+      - name: gender
+        description: "Member's gender."
+        data_type: CHAR(1)
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['M', 'F', 'O']  # Example accepted values
+      - name: join_date
+        description: "Date when the member joined."
+        data_type: DATE
+        tests:
+          - not_null
+      - name: employer_id
+        description: "Identifier for the member's employer."
+        data_type: INT
+        tests:
+          - not_null
+      - name: account_balance
+        description: "Calculated account balance for the member."
+        data_type: DECIMAL(10,2)
+        tests:
+          - not_null
+      - name: create_date
+        description: "Timestamp when the record was created."
+        data_type: TIMESTAMP
+        tests:
+          - not_null
+      - name: update_date
+        description: "Timestamp when the record was last updated."
+        data_type: TIMESTAMP
+        tests:
+          - not_null
+    meta:
+      created_at: "2024-04-27T12:00:00Z"
+      updated_at: "2024-04-27T12:00:00Z"

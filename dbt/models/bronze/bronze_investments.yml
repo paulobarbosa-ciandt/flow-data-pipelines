@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: investments
+    description: "Bronze layer table for investments data ingested from Azure Blob Storage."
+    columns:
+      - name: investment_id
+        description: "Unique identifier for each investment."
+      - name: member_id
+        description: "Identifier for the member associated with the investment."
+      - name: investment_option
+        description: "Type of investment option."
+      - name: units_held
+        description: "Number of units held in the investment."
+      - name: unit_price
+        description: "Price per unit of the investment."
+      - name: valuation_date
+        description: "Date of the investment valuation."
+      - name: modified_date
+        description: "Timestamp of the last modification."
+      - name: create_date
+        description: "Timestamp when the record was created."
+      - name: update_date
+        description: "Timestamp when the record was last updated."

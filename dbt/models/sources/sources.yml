@@ -5,3 +5,20 @@ sources:
     schema: fivetran  
     tables:
       - name: raw_members
+      - name: raw_contributions
+      - name: raw_investments
+      - name: raw_withdrawals
+  - name: bronze
+    schema: bronze
+    tables:
+      - name: bronze_members
+      - name: bronze_contributions
+      - name: bronze_investments
+      - name: bronze_withdrawals
+  - name: silver
+    schema: silver
+    tables:
+      - name: silver_members
+      - name: silver_contributions
+      - name: silver_investments
+      - name: silver_withdrawals
