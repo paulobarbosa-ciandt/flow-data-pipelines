@@ -32,3 +32,10 @@ models:
       +materialized: incremental
       +incremental_strategy: merge
       +on_schema_change: sync_all_columns
+
+    # Configuration for the 'gold' directory
+    gold:
+      +schema: gold           # Maps to 'gold' schema
+      +materialized: incremental
+      +incremental_strategy: merge
+      +on_schema_change: sync_all_columns

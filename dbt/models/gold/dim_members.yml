@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: dim_members
+    description: "Dimension table for member information in the gold layer, tracking historical changes using SCD Type 2."
+    columns:
+      - name: member_sk
+        description: "Surrogate key for the member dimension."
+        tests:
+          - not_null
+          - unique
+      - name: member_id
+        description: "Unique identifier for each member."
+        tests:
+          - not_null
+      - name: full_name
+        description: "Full name of the member."
+        tests:
+          - not_null
+      - name: date_of_birth
+        description: "Date of birth of the member."
+        tests:
+          - not_null
+      - name: gender
+        description: "Gender of the member."
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['M', 'F']
+      - name: join_date
+        description: "Date when the member joined."
+        tests:
+          - not_null
+      - name: employer_id
+        description: "Identifier for the employer of the member."
+      - name: create_date
+        description: "Timestamp when the record was created."
+      - name: update_date
+        description: "Timestamp when the record was last updated."
+      - name: effective_date
+        description: "Date when the record became effective."
+      - name: expiry_date
+        description: "Date when the record expired."
+      - name: is_active
+        description: "Indicates whether the record is active."
+        tests:
+          - not_null
